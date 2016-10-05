@@ -84,14 +84,68 @@ Koo Ping Shung
 <h1>Data Types in R</h1>
 <p>There are several data types in R</p>
 <ul>
-<li>Data.Frame</li>
-<li>Matrices</li>
-<li>Vectors</li>
-<li>Characters</li>
 <li>Numeric &amp; Integer</li>
+<li>Characters</li>
 <li>Logical</li>
 <li>Factor</li>
 <li>Date &amp; Time</li>
+<li>Data.Frame</li>
+<li>Matrices</li>
+<li>Vectors</li>
+</ul>
+<p>Let’s look at them in more details.</p>
+</div>
+<div id="numeric-interger" class="slide section level2">
+<h1>Numeric &amp; Interger</h1>
+<ul>
+<li>In R, numeric and integer are different.</li>
+<li>Main difference as follows:</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Properties</th>
+<th align="left">Numeric</th>
+<th align="left">Integer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Whole Number</td>
+<td align="left">Unnecessary</td>
+<td align="left">Necessary</td>
+</tr>
+<tr class="even">
+<td align="left">Decimal Place</td>
+<td align="left">Yes</td>
+<td align="left">No</td>
+</tr>
+<tr class="odd">
+<td align="left">Example</td>
+<td align="left">2.04</td>
+<td align="left">4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Numbers in R are treated as numeric unless specified.</li>
+<li>To explicit state an integer you need to specify an <em>L suffix</em></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(5L)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="characters" class="slide section level2">
+<h1>Characters</h1>
+<ul>
+<li></li>
+</ul>
+</div>
+<div id="data.frames" class="slide section level2">
+<h1>Data.Frames</h1>
+<ul>
+<li>Used for storing tabular data</li>
+<li>Can be seen as a list of vectors of equal length</li>
+<li>Each row in the data.frame represent an observation and each columns represent an attribute (also known as variable)</li>
 </ul>
 </div>
 

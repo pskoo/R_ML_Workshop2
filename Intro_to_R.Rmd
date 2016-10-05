@@ -37,14 +37,43 @@ R like any other programming language that you come across can provide simple ca
 
 There are several data types in R
 
-- Data.Frame
-- Matrices
-- Vectors
-- Characters
 - Numeric & Integer
+- Characters
 - Logical
 - Factor
 - Date & Time
+- Data.Frame
+- Matrices
+- Vectors
+
+Let's look at them in more details.
+
+##Numeric & Interger
+- In R, numeric and integer are different.
+- Main difference as follows:
+
+Properties    | Numeric     | Integer
+------------- | ------------|------------- 
+Whole Number  | Unnecessary | Necessary     
+Decimal Place | Yes         | No
+Example       | 2.04        | 4
+
+- Numbers in R are treated as numeric unless specified.
+- To explicit state an integer you need to specify an *L suffix*
+
+```{r,eval=T,echo=TRUE}
+is.integer(5L)
+```
+
+##Characters
+
+- 
+
+##Data.Frames
+
+- Used for storing tabular data
+- Can be seen as a list of vectors of equal length
+- Each row in the data.frame represent an observation and each columns represent an attribute (also known as variable)
 
 
 
