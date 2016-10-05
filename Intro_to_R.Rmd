@@ -52,22 +52,42 @@ Let's look at them in more details.
 - In R, numeric and integer are different.
 - Main difference as follows:
 
-Properties    | Numeric     | Integer
-------------- | ------------|------------- 
-Whole Number  | Unnecessary | Necessary     
-Decimal Place | Yes         | No
-Example       | 2.04        | 4
+Properties    | Numeric      | Integer
+:-------------|:------------:|:-------------: 
+Whole Number  | Unnecessary  | Necessary     
+Decimal Place | Yes          | No
+Example       | 2.04         | 4
 
 - Numbers in R are treated as numeric unless specified.
 - To explicit state an integer you need to specify an *L suffix*
 
 ```{r,eval=T,echo=TRUE}
-is.integer(5L)
+class(5L)
 ```
 
 ##Characters
+* Also known as *'strings'*
+* Can contain any character, symbol or numbers
+* Comprise of pure or mixture of any of the stated values
+* For example, 
+    * aabbcdcbabcdbabcdb (pure)
+    * 127781827 (pure)
+    * ##&&*@@ (pure)
+    * John gave Alice his email address as "John@hotmail.com." (mixture)
 
-- 
+##Logical
+- usually created when we want to make comparison
+- Consist of only two value "TRUE" or "FALSE"
+
+For example,
+
+```{r, eval=TRUE,echo=TRUE}
+x=3;y=1
+z=x>y
+z
+
+class(z)
+```
 
 ##Data.Frames
 

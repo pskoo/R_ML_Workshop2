@@ -105,25 +105,25 @@ Koo Ping Shung
 <thead>
 <tr class="header">
 <th align="left">Properties</th>
-<th align="left">Numeric</th>
-<th align="left">Integer</th>
+<th align="center">Numeric</th>
+<th align="center">Integer</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Whole Number</td>
-<td align="left">Unnecessary</td>
-<td align="left">Necessary</td>
+<td align="center">Unnecessary</td>
+<td align="center">Necessary</td>
 </tr>
 <tr class="even">
 <td align="left">Decimal Place</td>
-<td align="left">Yes</td>
-<td align="left">No</td>
+<td align="center">Yes</td>
+<td align="center">No</td>
 </tr>
 <tr class="odd">
 <td align="left">Example</td>
-<td align="left">2.04</td>
-<td align="left">4</td>
+<td align="center">2.04</td>
+<td align="center">4</td>
 </tr>
 </tbody>
 </table>
@@ -131,14 +131,37 @@ Koo Ping Shung
 <li>Numbers in R are treated as numeric unless specified.</li>
 <li>To explicit state an integer you need to specify an <em>L suffix</em></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(5L)</code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(5L)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
 </div>
 <div id="characters" class="slide section level2">
 <h1>Characters</h1>
 <ul>
-<li></li>
+<li>Also known as <em>‘strings’</em></li>
+<li>Can contain any character, symbol or numbers</li>
+<li>Comprise of pure or mixture of any of the stated values</li>
+<li>For example,
+<ul>
+<li>aabbcdcbabcdbabcdb (pure)</li>
+<li>127781827 (pure)</li>
+<li>##&amp;&amp;*@@ (pure)</li>
+<li>John gave Alice his email address as <a href="mailto:%22John@hotmail.com">&quot;John@hotmail.com</a>.&quot; (mixture)</li>
+</ul></li>
 </ul>
+</div>
+<div id="logical" class="slide section level2">
+<h1>Logical</h1>
+<ul>
+<li>usually created when we want to make comparison</li>
+<li>Consist of only two value “TRUE” or “FALSE”</li>
+</ul>
+<p>For example,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x=<span class="dv">3</span>;y=<span class="dv">1</span>
+z=x&gt;y
+z</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(z)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
 </div>
 <div id="data.frames" class="slide section level2">
 <h1>Data.Frames</h1>
