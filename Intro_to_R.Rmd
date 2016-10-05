@@ -1,0 +1,52 @@
+---
+title: "Introduction to R"
+author: "Koo Ping Shung"
+date: "5 October 2016"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+##Welcome
+
+Welcome to Introduction to R. Below are the learning objectives of the course
+
+- Understand how R works
+- Perform simple computation using R
+- Know what are the variables in R and how to convert them
+- Perform Conditional Processing and Computation Loops
+
+##What is R?
+R is an open-source language with multiple libraries(pacakages) available, that allows the user to undertake various tasks such as computation, data wrangling, visualization and so on. These packages are mostly user-created allowing for more sophisticated computation. 
+
+##Doing Calculations
+R like any other programming language that you come across can provide simple calculation. For instance, 
+
+```{r, eval = F,echo=TRUE}
+12 + 1 #addition
+9 - 4 #substraction
+23 + 2 - 4 #addition & substraction
+112 * 2 #multiplication
+84 / 14 #division
+2^4 #power
+```
+
+##Data Types in R
+
+There are several data types in R
+
+- Data.Frame
+- Matrices
+- Vectors
+- Characters
+- Numeric & Integer
+- Logical
+- Factor
+- Date & Time
+
+
+
+
+
