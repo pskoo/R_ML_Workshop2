@@ -89,6 +89,14 @@ z
 class(z)
 ```
  
+##Factor
+- Factors are categorical variables
+- It need not be ordered like "Small", "Medium", "Large"
+- For example,
+    - Gender
+    - Branch Codes
+    - T-Shirt Sizes
+
 ##Data.Frames
 
 - Used for storing tabular data
