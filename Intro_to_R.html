@@ -134,6 +134,24 @@ Koo Ping Shung
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(5L)</code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 </div>
+<div id="special-values" class="slide section level2">
+<h1>Special Values</h1>
+<ul>
+<li>There are 2 special values under numeric/integer.</li>
+<li>Special Value 1: inf
+<ul>
+<li>This value represents <em>infinity</em>.</li>
+</ul></li>
+<li>Special value 2: NaN
+<ul>
+<li>This represents <em>undefined value</em>, also associated with <em>missing value</em>.</li>
+</ul></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="ot">Inf</span>)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="ot">NaN</span>)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+</div>
 <div id="characters" class="slide section level2">
 <h1>Characters</h1>
 <ul>
@@ -157,7 +175,7 @@ Koo Ping Shung
 </ul>
 <p>For example,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x=<span class="dv">3</span>;y=<span class="dv">1</span>
-z=x&gt;y
+z &lt;-<span class="st"> </span>x&gt;y
 z</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(z)</code></pre></div>
@@ -176,6 +194,90 @@ z</code></pre></div>
 </ul></li>
 </ul>
 </div>
+<div id="date" class="slide section level2">
+<h1>Date</h1>
+<ul>
+<li>Like most software, dates in R is stored as the number of days between the date value and January 1st, 1970.</li>
+<li>For instance, to store “1970-01-01”, R would store it as “0”.</li>
+<li>To store “1971-01-01”, R would store it as “365”.</li>
+<li>Thus dates <strong>before</strong> reference date will reflect <strong>negative value</strong>, while dates <strong>after</strong> reference date will reflect <strong>positive</strong> value.</li>
+</ul>
+</div>
+<div id="time" class="slide section level2">
+<h1>Time</h1>
+<ul>
+<li>Time is also referenced to January 1st, 1970.</li>
+<li>Time can be stored in either class:
+<ul>
+<li>POSIXct(): data stored in the form of seconds (default)</li>
+<li>POSIXlt(): data sored in list of elements</li>
+</ul></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(<span class="kw">Sys.time</span>())
+b</code></pre></div>
+<pre><code>## [1] &quot;2016-10-07 15:02:56 MYT&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b$min</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+</div>
+<div id="time-element" class="slide section level2">
+<h1>Time Element</h1>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Elements</th>
+<th align="center">Range</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">sec</td>
+<td align="center">0-61</td>
+<td align="left">Seconds</td>
+</tr>
+<tr class="even">
+<td align="center">min</td>
+<td align="center">0-59</td>
+<td align="left">Minutes</td>
+</tr>
+<tr class="odd">
+<td align="center">hour</td>
+<td align="center">0-23</td>
+<td align="left">Hours</td>
+</tr>
+<tr class="even">
+<td align="center">mday</td>
+<td align="center">1-31</td>
+<td align="left">Day of Month</td>
+</tr>
+<tr class="odd">
+<td align="center">mon</td>
+<td align="center">0-11</td>
+<td align="left">Months after first month of year</td>
+</tr>
+<tr class="even">
+<td align="center">year</td>
+<td align="center">&gt;1900</td>
+<td align="left">Year after 1900</td>
+</tr>
+<tr class="odd">
+<td align="center">wday</td>
+<td align="center">0-6</td>
+<td align="left">Day of Week, “0” represent Sunday</td>
+</tr>
+<tr class="even">
+<td align="center">yday</td>
+<td align="center">0-365</td>
+<td align="left">Day of the year</td>
+</tr>
+<tr class="odd">
+<td align="center">isdst</td>
+<td align="center">0-1</td>
+<td align="left">Daylight saving time flag</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div id="data.frames" class="slide section level2">
 <h1>Data.Frames</h1>
 <ul>
@@ -183,6 +285,40 @@ z</code></pre></div>
 <li>Can be seen as a list of vectors of equal length</li>
 <li>Each row in the data.frame represent an observation and each columns represent an attribute (also known as variable)</li>
 </ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(iris) <span class="co">#iris is an existing dataset in R</span></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<ul>
+<li>We shall discuss this in more details later</li>
+</ul>
+</div>
+<div id="vector" class="slide section level2">
+<h1>Vector</h1>
+<ul>
+<li>Sequence of data of the same type</li>
+<li>Members in a vector are called components (or just members)</li>
+<li>Implicit meaning usually attached to the position of each component</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.4</span>, <span class="fl">5.7</span>, <span class="fl">3.2</span>, <span class="fl">4.3</span>, <span class="fl">9.1</span>)
+x</code></pre></div>
+<pre><code>## [1] 1.4 5.7 3.2 4.3 9.1</code></pre>
+</div>
+<div id="matrix" class="slide section level2">
+<h1>Matrix</h1>
+<ul>
+<li>A collection of data arranged in 2 dimension layout</li>
+<li>An array with 2 subscripts</li>
+<li>Forms the most fundamental of data science</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="fl">1.4</span>, <span class="fl">5.7</span>, <span class="fl">3.2</span>, <span class="fl">4.3</span>, <span class="fl">9.1</span>, <span class="fl">7.8</span>),<span class="dt">nrow=</span><span class="dv">2</span>,<span class="dt">ncol=</span><span class="dv">3</span>)
+y</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]  1.4  3.2  9.1
+## [2,]  5.7  4.3  7.8</code></pre>
+<ul>
+<li>If you need to select a particular position in matrix</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y[<span class="dv">1</span>,<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] 3.2</code></pre>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
