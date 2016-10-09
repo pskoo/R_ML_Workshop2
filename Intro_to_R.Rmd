@@ -225,10 +225,75 @@ x <- as.factor(x)
 class(x)
 ```
 
+##Comparison
+- Often times, you wanted to check if a certain element is of certain type. You can do the following:
+```{r,eval=T,echo=T}
+x <- TRUE
+u <- is.character(x)
+u
+v <- is.factor(x)
+v
+w <- is.logical(x)
+w
+```
+- To compare if an object is of a certain type/class, you just need is.*() to make the comparison.
+
 
 ##Subsetting
-- At anytime, you may only need a subset of 
-- If you need to select a particular position in matrix
+- At anytime, you may only need a subset of a data type
+- Taking a subset depends on the data type.
+- "[]" returns an object the same class as the original
+- "[[]]" used to extract elements of a list or data.frames. Onced use, the return value need not necessary be the same type as the list or data.frames.
+- "$" is used to extract elements of a data.frames or list. Often times, we use it to refer to columns in data.frames. 
+
+Some examples as follows:
+
+##Subsetting Examples
+```{r,eval=T,echo=T}
+x <- c(9,2,5,7,8,4,3,1)
+x[4]
+x[2]
+x[x>5]
+```
+
+##More Subsetting Examples
+```{r,eval=T,echo=T}
+x <- c(9,2,5,7,8,4,3,1)
+u <- x>4
+u
+```
+
+##Subsetting Matrix
+- Let's set up a matrix for first
+```{r,eval=T,echo=T}
+x <- matrix(c(9,2,5,7,8,4,3,1,6,10,19,13),nrow=3,ncol=4)
+x
+```
+-If I want the element on 2nd row and 3rd column, I will need to code as
+```{r,eval=T,echo=T}
+x[2,3]
+```
+
+##Subsetting Matrix (continued)
+- If I want all the elements on 1st row, I will need to code as
+```{r,eval=T,echo=T}
+x[1,]
+```
+- How about if I want all the element on 4th column? Here you go.
+```{r,eval=T,echo=T}
+x[,4]
+```
+- Let's make it more challenging. I want 2nd and 3rd column.
+```{r,eval=T,echo=T}
+x[,2:3]
+```
+
+##Subsetting Matrix (Continued)
+- You will notice so far, if you subset by rows or columns they return in a vector of length 1
+- If that is not what you wanted, try *drop=FALSE* option.
+```{r,eval=T,echo=T}
+x[,4,drop=FALSE]
+```
 
 
 
