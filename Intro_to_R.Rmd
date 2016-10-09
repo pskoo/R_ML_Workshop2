@@ -45,6 +45,7 @@ There are several data types in R
 - Data.Frame
 - Matrices
 - Vectors
+- Lists
 
 Let's look at them in more details.
 
@@ -159,6 +160,7 @@ class(iris) #iris is an existing dataset in R
 - Sequence of data of the same type
 - Members in a vector are called components (or just members)
 - Implicit meaning usually attached to the position of each component
+- **c()** is used to create the vector as seen in the example below
 
 ```{r,eval=T,echo=T}
 x <- c(1.4, 5.7, 3.2, 4.3, 9.1)
@@ -173,11 +175,60 @@ x
 y <- matrix(c(1.4, 5.7, 3.2, 4.3, 9.1, 7.8),nrow=2,ncol=3)
 y
 ```
-- If you need to select a particular position in matrix
+
+##Lists
+- Special type of vector that can contain elements of different type.
 ```{r,eval=T,echo=T}
-y[1,2]
+x <- list(4,"TRUE", TRUE, c(1,4,7.3))
+class(x)
+class(x[[2]])
+class(x[[3]])
+class(x[[4]])
 ```
 
+##Attributes
+- Each datatypes can have certain attributes.
+- To understand more of each attributes, we can use the **attributes()** function.
+```{r,eval=T,echo=T}
+x <- list(4,"TRUE", TRUE, c(1,4,7.3))
+attributes(x)
+y <- matrix(c(1.4, 5.7, 3.2, 4.3, 9.1, 7.8),nrow=2,ncol=3)
+attributes(y)
+```
+
+##Assignments
+- By now you would have seen how you can assign an expression to an object in R
+- "<-" is the assignment operator
+- For example, I am assigning the expression "4+1"" to x
+- You'll notice that the expression is evaluated before assigning the final result to x
+
+```{r,eval=T,echo=T}
+x <- 4+1
+x
+```
+- If you do not want the R to evaluate the expression then you can use **quote()**
+
+```{r,eval=T,echo=T}
+y <- quote(9+13)
+y
+```
+
+##Explicit Coercion
+- Sometimes for statistical modelling to work, you may need to change the data type of a column
+- To do that, we use *explicit coercion*
+- Generally, you just have to select the column/object and use as.*() to change
+- For example,
+```{r,eval=T,echo=T}
+x <- c(0,1,1,0,0)
+class(x)
+x <- as.factor(x)
+class(x)
+```
+
+
+##Subsetting
+- At anytime, you may only need a subset of 
+- If you need to select a particular position in matrix
 
 
 
