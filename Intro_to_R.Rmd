@@ -295,6 +295,27 @@ x[,2:3]
 x[,4,drop=FALSE]
 ```
 
+##Random Number Generator
+- Often times in Data Science work, you might need to generate a set of numbers
+- For instance, if I want to generate a set of 13 numbers with mean=4 and standard deviation=3
+```{r,eval=T,echo=T}
+x<-rnorm(13,4,3)
+x
+
+summary(x)
+```
+The above is generating from a Normal probability distribution. For other probability distribution, you may Google for them easily.
+
+##Random Sample
+- The *sample()* function can be used to select a random sample from a set of (scalar) objects.
+```{r,eval=T,echo=T}
+set.seed(123789)
+u<-sample(1:30,10)
+u
+
+v<-sample(1:20,10,replace = TRUE)
+v
+```
 
 
 
