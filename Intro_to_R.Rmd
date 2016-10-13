@@ -490,7 +490,54 @@ t1 <- startT("The cow jump over the moon")
 t1
 ```
 
+##Install Packages
+- In R, you may need to install R packages for your work
+- Packages may contain relevant functions or data.frames that you need
+- For example, you want to use the *dplyr* package. Submit the following code
+```{r,eval=F,echo=T}
+install.packages("dplyr")
+```
+- After installation, for any new R session, you need to deploy the packages you need. To deploy, 
+```{r,eval=F,echo=T}
+library(dplyr)
+```
 
+##Coding Guidelines
+- This wraps up the introduction to R workshop
+- As you step into the world of coding, we would like to provide some coding guidelines
+
+##Why Coding Guidelines?
+- To make codes more comprehensible, not only for you but others as well
+- Understand the process flow of a code easily
+- State the boundaries of the individual codes, especially loops and user-defined functions visually
+    - Useful when reviewing and debugging codes
+- All that said, guidelines are not mandatory (we strongly recommend though)
+
+##Coding Guidelines: Consolidating
+- Consolidate all similar codes in a single program
+- Done in a text editor, to test out the codes
+- *Important*!
+    - Specify deployed packages before the codes
+    - Codes that manage R session should be placed at the start of the program
+
+##Coding Guidelines: Commenting
+- Comment on codes where possible
+- Help viewers understand the code better
+- Easier to review codes
+- To comment in R, start with a "#" sign then follow by the comment
+
+##Coding Guidelines: Indentation
+- Defines the boundary of codes
+- For example, 
+```{r,eval=F,echo=T}
+for(i in 1:dim(trymatrix)[1] {
+		for(j in 1:dim(trymatrix)[2] {
+			trymatrix[i, j] <- i*j
+		}
+	}
+
+```
+- With the above example, other programmers can define the boundaries of the loops easily
 
 
    

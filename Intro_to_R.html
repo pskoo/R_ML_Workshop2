@@ -216,9 +216,9 @@ z</code></pre></div>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(<span class="kw">Sys.time</span>())
 b</code></pre></div>
-<pre><code>## [1] &quot;2016-10-13 14:24:08 MYT&quot;</code></pre>
+<pre><code>## [1] &quot;2016-10-13 16:30:58 MYT&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b$min</code></pre></div>
-<pre><code>## [1] 24</code></pre>
+<pre><code>## [1] 30</code></pre>
 </div>
 <div id="time-element" class="slide section level2">
 <h1>Time Element</h1>
@@ -482,12 +482,12 @@ x</code></pre></div>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">rnorm</span>(<span class="dv">13</span>,<span class="dv">4</span>,<span class="dv">3</span>)
 x</code></pre></div>
-<pre><code>##  [1]  7.3394044 -1.5872934  0.7635920  6.7029214  2.0274843  4.6312697
-##  [7]  0.9919723  3.3920992  7.6036494  2.2686654  1.5217097  7.6809690
-## [13] -0.6855190</code></pre>
+<pre><code>##  [1]  8.9391172  6.4939931  1.2838672 -0.1184823  2.9441951 -1.2511798
+##  [7]  3.3322845  4.6719427  7.1005817 -2.4585322 -2.6395163  3.8549573
+## [13] -1.1668897</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(x)</code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -1.587   0.992   2.269   3.281   6.703   7.681</code></pre>
+##  -2.640  -1.167   2.944   2.384   4.672   8.939</code></pre>
 <p>The above is generating from a Normal probability distribution. For other probability distribution, you may Google for them easily.</p>
 </div>
 <div id="random-sample" class="slide section level2">
@@ -722,6 +722,59 @@ c1</code></pre></div>
 t1 &lt;-<span class="st"> </span><span class="kw">startT</span>(<span class="st">&quot;The cow jump over the moon&quot;</span>)
 t1</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="install-packages" class="slide section level2">
+<h1>Install Packages</h1>
+<ul>
+<li>In R, you may need to install R packages for your work</li>
+<li>Packages may contain relevant functions or data.frames that you need</li>
+<li>For example, you want to use the <em>dplyr</em> package. Submit the following code</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</code></pre></div>
+<ul>
+<li>After installation, for any new R session, you need to deploy the packages you need. To deploy,</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)</code></pre></div>
+</div>
+<div id="coding-guidelines" class="slide section level2">
+<h1>Coding Guidelines</h1>
+<ul>
+<li>This wraps up the introduction to R workshop</li>
+<li>As you step into the world of coding, we would like to provide some coding guidelines</li>
+</ul>
+</div>
+<div id="why-coding-guidelines" class="slide section level2">
+<h1>Why Coding Guidelines?</h1>
+<ul>
+<li>To make codes more comprehensible, not only for you but others as well</li>
+<li>Understand the process flow of a code easily</li>
+<li>State the boundaries of the individual codes, especially loops and user-defined functions visually
+<ul>
+<li>Useful when reviewing and debugging codes</li>
+</ul></li>
+<li>All that said, guidelines are not mandatory (we strongly recommend though)</li>
+</ul>
+</div>
+<div id="coding-guidelines-1" class="slide section level2">
+<h1>Coding Guidelines 1</h1>
+<ul>
+<li>Consolidate all codes in a single program</li>
+<li>Done in a text editor, to test out the codes</li>
+<li><em>Important</em>!
+<ul>
+<li>Specify deployed packages before the codes</li>
+<li>Codes that manage R session should be placed at the start of the program</li>
+</ul></li>
+</ul>
+</div>
+<div id="coding-guidelines-2" class="slide section level2">
+<h1>Coding Guidelines 2</h1>
+<ul>
+<li>Comment on codes where possible</li>
+<li>Help viewers understand the code better</li>
+<li>Easier to review codes</li>
+<li>To comment in R, start with a “#” sign then follow by the comment.</li>
+</ul>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
