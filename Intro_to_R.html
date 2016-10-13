@@ -216,9 +216,9 @@ z</code></pre></div>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(<span class="kw">Sys.time</span>())
 b</code></pre></div>
-<pre><code>## [1] &quot;2016-10-11 18:59:58 MYT&quot;</code></pre>
+<pre><code>## [1] &quot;2016-10-13 14:24:08 MYT&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b$min</code></pre></div>
-<pre><code>## [1] 59</code></pre>
+<pre><code>## [1] 24</code></pre>
 </div>
 <div id="time-element" class="slide section level2">
 <h1>Time Element</h1>
@@ -482,12 +482,12 @@ x</code></pre></div>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">rnorm</span>(<span class="dv">13</span>,<span class="dv">4</span>,<span class="dv">3</span>)
 x</code></pre></div>
-<pre><code>##  [1] -0.4720994  0.9007402  4.0415171  5.0587953 -3.5673430  1.5806196
-##  [7]  9.5238778  9.0306466  0.1655542  2.5245023  4.5731615  2.1139695
-## [13]  4.4624658</code></pre>
+<pre><code>##  [1]  7.3394044 -1.5872934  0.7635920  6.7029214  2.0274843  4.6312697
+##  [7]  0.9919723  3.3920992  7.6036494  2.2686654  1.5217097  7.6809690
+## [13] -0.6855190</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(x)</code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-## -3.5670  0.9007  2.5250  3.0720  4.5730  9.5240</code></pre>
+##  -1.587   0.992   2.269   3.281   6.703   7.681</code></pre>
 <p>The above is generating from a Normal probability distribution. For other probability distribution, you may Google for them easily.</p>
 </div>
 <div id="random-sample" class="slide section level2">
@@ -502,6 +502,226 @@ u</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v&lt;-<span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">20</span>,<span class="dv">10</span>,<span class="dt">replace =</span> <span class="ot">TRUE</span>)
 v</code></pre></div>
 <pre><code>##  [1] 10 17  4 11 17  1 15 20 14 10</code></pre>
+</div>
+<div id="functions" class="slide section level2">
+<h1>Functions</h1>
+<ul>
+<li>Similar to Excel functions that you are familiar with</li>
+<li>Can be pre-defined in R packages or user-created</li>
+<li>Define the process that transforms or extracts information from data values</li>
+<li>Having functions allows
+<ul>
+<li>reduces the code to maintain</li>
+<li>readability</li>
+<li>saves programmer’s time</li>
+</ul></li>
+<li>To use functions, we need to know the function’s name and their arguments</li>
+<li><p>General form of function is as follows</p>
+<p><em>function-name(argument1, argument2, argument3,…argument n)</em></p></li>
+</ul>
+</div>
+<div id="matching-arguments" class="slide section level2">
+<h1>Matching Arguments</h1>
+<ul>
+<li>To avoid confusion on the position of argument, state the name of the argument in the function</li>
+<li>For example,</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">3</span>,<span class="dv">9</span>),<span class="dt">nrow =</span> <span class="dv">2</span>,<span class="dt">ncol=</span><span class="dv">3</span>) <span class="co">#is similar to below</span>
+n &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">3</span>,<span class="dv">9</span>),<span class="dt">ncol =</span> <span class="dv">3</span>,<span class="dt">nrow=</span><span class="dv">2</span>)
+m</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    4    6    3
+## [2,]    1    8    9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n</code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    4    6    3
+## [2,]    1    8    9</code></pre>
+</div>
+<div id="user-created-function" class="slide section level2">
+<h1>User Created Function</h1>
+<ul>
+<li>User can create their own functions too</li>
+<li>Check out the following</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">testf &lt;-<span class="st"> </span>function(a,b,c){
+  (a*b)-c
+}
+g &lt;-<span class="st"> </span><span class="kw">testf</span>(<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">14</span>)
+g</code></pre></div>
+<pre><code>## [1] 76</code></pre>
+</div>
+<div id="unmatched-arguments" class="slide section level2">
+<h1>Unmatched Arguments</h1>
+<ul>
+<li>Going back to the testf() function, let’s try the following</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f &lt;-<span class="st"> </span><span class="kw">testf</span>(<span class="dv">14</span>,<span class="dv">10</span>)</code></pre></div>
+<p>You would see an error that says an argument is missing. This could be avoided by assigning default values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">testf &lt;-<span class="st"> </span>function(<span class="dt">a=</span><span class="dv">1</span>,<span class="dt">b=</span><span class="dv">1</span>,<span class="dt">c=</span><span class="dv">0</span>){
+  (a*b)-c
+}
+g &lt;-<span class="st"> </span><span class="kw">testf</span>(<span class="dv">9</span>,<span class="dv">10</span>)
+g</code></pre></div>
+<pre><code>## [1] 90</code></pre>
+</div>
+<div id="control-structures" class="slide section level2">
+<h1>Control Structures</h1>
+<ul>
+<li>There are times we want some of our functions to generate output given certain conditions.</li>
+<li>In the next few slides we will go through the following:
+<ul>
+<li>Conditional Processing</li>
+<li>Loop &amp; Nested Loop</li>
+<li>Control Structure
+<ul>
+<li>While</li>
+<li>Repeat &amp; Break</li>
+<li>Next</li>
+<li>Return</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="conditional-processing" class="slide section level2">
+<h1>Conditional Processing</h1>
+<ul>
+<li>To process data according to certain conditions</li>
+<li>Example,</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">4</span>
+if(x &gt;<span class="st"> </span><span class="dv">5</span>) {
+    y &lt;-<span class="st"> &quot;Greater than five&quot;</span>
+} else {
+    y &lt;-<span class="st"> &quot;Less than or equal to 5&quot;</span>
+}
+y</code></pre></div>
+<pre><code>## [1] &quot;Less than or equal to 5&quot;</code></pre>
+</div>
+<div id="operators" class="slide section level2">
+<h1>Operators</h1>
+<p>Symbols |Description ———|————- “==” |Equality “&gt;” |Greater than “&lt;” |Less than “&gt;=” |Greater than or Equal to “&lt;=” |Less than or Equal to “&amp;&amp;” |AND “||” |OR “!” |NOT</p>
+</div>
+<div id="loops" class="slide section level2">
+<h1>Loops</h1>
+<ul>
+<li>Create loops to process data iteratively</li>
+<li>Useful for cleaning data</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">3</span>)
+x &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;logical&quot;</span>, <span class="dt">length =</span> <span class="dv">8</span>)
+for(i in <span class="dv">1</span>:<span class="st"> </span><span class="kw">length</span>(y)) {
+  x[i] &lt;-<span class="st"> </span>y[i] &gt;<span class="st"> </span><span class="dv">5</span>
+}
+x</code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE</code></pre>
+</div>
+<div id="nested-loops" class="slide section level2">
+<h1>Nested Loops</h1>
+<ul>
+<li>Known as loop within loop</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trymatrix &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">nrow =</span> <span class="dv">12</span>, <span class="dt">ncol =</span> <span class="dv">12</span>)
+for(i in <span class="dv">1</span>:<span class="kw">dim</span>(trymatrix)[<span class="dv">1</span>]) { <span class="co">#outer loop</span>
+            for(j in <span class="dv">1</span>:<span class="kw">dim</span>(trymatrix)[<span class="dv">2</span>]) { <span class="co">#inner loop</span>
+                trymatrix[i, j] &lt;-<span class="st"> </span>i*j
+            }
+        }
+trymatrix</code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+##  [1,]    1    2    3    4    5    6    7    8    9    10    11    12
+##  [2,]    2    4    6    8   10   12   14   16   18    20    22    24
+##  [3,]    3    6    9   12   15   18   21   24   27    30    33    36
+##  [4,]    4    8   12   16   20   24   28   32   36    40    44    48
+##  [5,]    5   10   15   20   25   30   35   40   45    50    55    60
+##  [6,]    6   12   18   24   30   36   42   48   54    60    66    72
+##  [7,]    7   14   21   28   35   42   49   56   63    70    77    84
+##  [8,]    8   16   24   32   40   48   56   64   72    80    88    96
+##  [9,]    9   18   27   36   45   54   63   72   81    90    99   108
+## [10,]   10   20   30   40   50   60   70   80   90   100   110   120
+## [11,]   11   22   33   44   55   66   77   88   99   110   121   132
+## [12,]   12   24   36   48   60   72   84   96  108   120   132   144</code></pre>
+</div>
+<div id="while-loop" class="slide section level2">
+<h1>While Loop</h1>
+<ul>
+<li>Tells R to keep processing as long as condition is satisfied</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">3</span>
+    while(x &lt;=<span class="st"> </span><span class="dv">33</span>) {
+        x &lt;-<span class="st"> </span>x +<span class="st"> </span><span class="dv">3</span>
+        <span class="kw">print</span>(x)
+}</code></pre></div>
+<pre><code>## [1] 6
+## [1] 9
+## [1] 12
+## [1] 15
+## [1] 18
+## [1] 21
+## [1] 24
+## [1] 27
+## [1] 30
+## [1] 33
+## [1] 36</code></pre>
+</div>
+<div id="repeat-loop-break-clause" class="slide section level2">
+<h1>Repeat Loop &amp; Break Clause</h1>
+<ul>
+<li>Repeat loop and “break” clause works together</li>
+<li>Repeat loop commonly used when conditions need to be “repeated” (unlike while loop, which stops when condition not met)</li>
+<li>An instruction within a repeat loop will be executed at least once</li>
+<li>To prevent an infinite loop when using repeat loop, can use if.else with break clause</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">2</span>
+    repeat {
+      x &lt;-<span class="st"> </span>x +<span class="st"> </span><span class="dv">1</span>
+      <span class="kw">print</span>(x)
+        if(x ==<span class="st"> </span><span class="dv">10</span>) {
+        break
+        }
+    }</code></pre></div>
+<pre><code>## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+</div>
+<div id="next-clause" class="slide section level2">
+<h1>Next Clause</h1>
+<ul>
+<li>Next clause tells R to skip an iteration of the loop</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">c1 &lt;-<span class="st"> </span><span class="dv">0</span>
+c2 &lt;-<span class="st"> </span><span class="dv">0</span>
+for(i in <span class="dv">1</span>:<span class="dv">100</span>) {
+            c1 &lt;-<span class="st"> </span>c1 +<span class="st"> </span><span class="dv">1</span>
+            if(i &lt;=<span class="st"> </span><span class="dv">15</span>) {
+                next
+            }
+            c2 &lt;-<span class="st"> </span>c2 +<span class="st"> </span><span class="dv">1</span>
+        }
+c1</code></pre></div>
+<pre><code>## [1] 100</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">c2</code></pre></div>
+<pre><code>## [1] 85</code></pre>
+</div>
+<div id="return-clause" class="slide section level2">
+<h1>Return Clause</h1>
+<ul>
+<li>Tells R the type of value to return</li>
+<li>Particularly used in user-defined functions</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">startT &lt;-<span class="st"> </span>function(x){
+        if(<span class="st">'T'</span> ==<span class="st"> </span><span class="kw">substr</span>(x,<span class="dv">1</span>,<span class="dv">1</span>)){
+        <span class="kw">return</span>(<span class="ot">TRUE</span>)
+        }
+        <span class="kw">return</span>(<span class="ot">FALSE</span>)
+    }
+t1 &lt;-<span class="st"> </span><span class="kw">startT</span>(<span class="st">&quot;The cow jump over the moon&quot;</span>)
+t1</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->

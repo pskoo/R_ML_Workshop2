@@ -317,6 +317,180 @@ v<-sample(1:20,10,replace = TRUE)
 v
 ```
 
+##Functions
+- Similar to Excel functions that you are familiar with
+- Can be pre-defined in R packages or user-created
+- Define the process that transforms or extracts information from data values
+- Having functions allows
+    - reduces the code to maintain
+    - readability
+    - saves programmer's time
+- To use functions, we need to know the function's name and their arguments
+- General form of function is as follows
+    
+    *function-name(argument1, argument2, argument3,...argument n)*
+    
+##Matching Arguments
+- To avoid confusion on the position of argument, state the name of the argument in the function 
+- For example,
+
+```{r,eval=T,echo=T}
+m <- matrix(c(4,1,6,8,3,9),nrow = 2,ncol=3) #is similar to below
+n <- matrix(c(4,1,6,8,3,9),ncol = 3,nrow=2)
+m
+n
+```
+
+##User Created Function
+- User can create their own functions too
+- Check out the following
+
+```{r,eval=T,echo=T}
+testf <- function(a,b,c){
+  (a*b)-c
+}
+g <- testf(9,10,14)
+g
+```
+
+##Unmatched Arguments
+
+- Going back to the testf() function, let's try the following
+```{r,eval=F,echo=T}
+f <- testf(14,10)
+```
+
+You would see an error that says an argument is missing. This could be avoided by assigning default values.
+
+```{r,eval=T,echo=T}
+testf <- function(a=1,b=1,c=0){
+  (a*b)-c
+}
+g <- testf(9,10)
+g
+```
+
+##Control Structures
+- There are times we want some of our functions to generate output given certain conditions.
+- In the next few slides we will go through the following: 
+    - Conditional Processing
+    - Loop & Nested Loop
+    - Control Structure
+        - While
+        - Repeat & Break
+        - Next 
+        - Return
+
+##Conditional Processing
+- To process data according to certain conditions
+- Example,
+
+```{r,eval=T,echo=T}
+x <- 4
+if(x > 5) {
+	y <- "Greater than five"
+} else {
+	y <- "Less than or equal to 5"
+}
+y
+```
+
+##Operators
+
+Symbols  |Description
+---------|-------------
+   "=="  |Equality
+   ">"   |Greater than
+   "<"   |Less than
+   ">="  |Greater than or Equal to
+   "<="  |Less than or Equal to
+   "&&"  |AND
+   "||"  |OR
+   "!"   |NOT
+   
+##Loops
+
+- Create loops to process data iteratively
+- Useful for cleaning data
+
+```{r,eval=T,echo=T}
+y <-c(1,5,7,3,2,7,8,9,3)
+x <- vector("logical", length = 8)
+for(i in 1: length(y)) {
+  x[i] <- y[i] > 5
+}
+x
+```
+
+##Nested Loops
+- Known as loop within loop
+```{r,eval=T,echo=T}
+trymatrix <- matrix(nrow = 12, ncol = 12)
+for(i in 1:dim(trymatrix)[1]) { #outer loop
+			for(j in 1:dim(trymatrix)[2]) { #inner loop
+				trymatrix[i, j] <- i*j
+			}
+		}
+trymatrix
+```
+
+##While Loop
+- Tells R to keep processing as long as condition is satisfied
+```{r,eval=T,echo=T}
+x <- 3
+	while(x <= 33) {
+		x <- x + 3
+		print(x)
+}
+```
+
+##Repeat Loop & Break Clause
+- Repeat loop and "break" clause works together
+- Repeat loop commonly used when conditions need to be "repeated" (unlike while loop, which stops when condition not met)
+- An instruction within a repeat loop will be executed at least once
+- To prevent an infinite loop when using repeat loop, can use if.else with break clause
+```{r,eval=T,echo=T}
+x <- 2
+	repeat {
+	  x <- x + 1
+	  print(x)
+		if(x == 10) {
+		break
+		}
+	}
+```
+
+##Next Clause
+- Next clause tells R to skip an iteration of the loop
+```{r,eval=T,echo=T}
+c1 <- 0
+c2 <- 0
+for(i in 1:100) {
+			c1 <- c1 + 1
+			if(i <= 15) {
+				next
+			}
+			c2 <- c2 + 1
+		}
+c1
+c2
+```
+
+##Return Clause
+- Tells R the type of value to return
+- Particularly used in user-defined functions
+```{r,eval=T,echo=T}
+startT <- function(x){
+		if('T' == substr(x,1,1)){
+		return(TRUE)
+		}
+		return(FALSE)
+    }
+t1 <- startT("The cow jump over the moon")
+t1
+```
 
 
 
+
+   
