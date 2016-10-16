@@ -490,6 +490,20 @@ t1 <- startT("The cow jump over the moon")
 t1
 ```
 
+##lapply
+- Often times you want to apply same function over a list of items
+- lapply() does that
+    - First argument for lapply is a list
+    - Second argument is a name of a function
+    - Third argument are other arguments for the function
+- For example,
+```{r,eval=T,echo=T}
+x <- list(a=rnorm(10), b=10:50)
+y <- lapply(x, mean)
+y
+```
+
+
 ##Install Packages
 - In R, you may need to install R packages for your work
 - Packages may contain relevant functions or data.frames that you need

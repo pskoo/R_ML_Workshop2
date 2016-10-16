@@ -216,9 +216,9 @@ z</code></pre></div>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(<span class="kw">Sys.time</span>())
 b</code></pre></div>
-<pre><code>## [1] &quot;2016-10-13 16:30:58 MYT&quot;</code></pre>
+<pre><code>## [1] &quot;2016-10-16 10:52:15 MYT&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b$min</code></pre></div>
-<pre><code>## [1] 30</code></pre>
+<pre><code>## [1] 52</code></pre>
 </div>
 <div id="time-element" class="slide section level2">
 <h1>Time Element</h1>
@@ -482,12 +482,12 @@ x</code></pre></div>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">rnorm</span>(<span class="dv">13</span>,<span class="dv">4</span>,<span class="dv">3</span>)
 x</code></pre></div>
-<pre><code>##  [1]  8.9391172  6.4939931  1.2838672 -0.1184823  2.9441951 -1.2511798
-##  [7]  3.3322845  4.6719427  7.1005817 -2.4585322 -2.6395163  3.8549573
-## [13] -1.1668897</code></pre>
+<pre><code>##  [1]  1.2034824 -0.7352765  7.5555551 -1.1303980  4.1414422  5.4871004
+##  [7]  7.9509121  5.9867756  1.9869165  3.3614153  6.5283035  5.8486959
+## [13]  5.5121575</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(x)</code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -2.640  -1.167   2.944   2.384   4.672   8.939</code></pre>
+##  -1.130   1.987   5.487   4.131   5.987   7.951</code></pre>
 <p>The above is generating from a Normal probability distribution. For other probability distribution, you may Google for them easily.</p>
 </div>
 <div id="random-sample" class="slide section level2">
@@ -723,6 +723,27 @@ t1 &lt;-<span class="st"> </span><span class="kw">startT</span>(<span class="st"
 t1</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
+<div id="lapply" class="slide section level2">
+<h1>lapply</h1>
+<ul>
+<li>Often times you want to apply same function over a list of items</li>
+<li>lapply() does that
+<ul>
+<li>First argument for lapply is a list</li>
+<li>Second argument is a name of a function</li>
+<li>Third argument are other arguments for the function</li>
+</ul></li>
+<li>For example,</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="kw">rnorm</span>(<span class="dv">10</span>), <span class="dt">b=</span><span class="dv">10</span>:<span class="dv">50</span>)
+y &lt;-<span class="st"> </span><span class="kw">lapply</span>(x, mean)
+y</code></pre></div>
+<pre><code>## $a
+## [1] -0.07452739
+## 
+## $b
+## [1] 30</code></pre>
+</div>
 <div id="install-packages" class="slide section level2">
 <h1>Install Packages</h1>
 <ul>
@@ -755,10 +776,10 @@ t1</code></pre></div>
 <li>All that said, guidelines are not mandatory (we strongly recommend though)</li>
 </ul>
 </div>
-<div id="coding-guidelines-1" class="slide section level2">
-<h1>Coding Guidelines 1</h1>
+<div id="coding-guidelines-consolidating" class="slide section level2">
+<h1>Coding Guidelines: Consolidating</h1>
 <ul>
-<li>Consolidate all codes in a single program</li>
+<li>Consolidate all similar codes in a single program</li>
 <li>Done in a text editor, to test out the codes</li>
 <li><em>Important</em>!
 <ul>
@@ -767,13 +788,28 @@ t1</code></pre></div>
 </ul></li>
 </ul>
 </div>
-<div id="coding-guidelines-2" class="slide section level2">
-<h1>Coding Guidelines 2</h1>
+<div id="coding-guidelines-commenting" class="slide section level2">
+<h1>Coding Guidelines: Commenting</h1>
 <ul>
 <li>Comment on codes where possible</li>
 <li>Help viewers understand the code better</li>
 <li>Easier to review codes</li>
-<li>To comment in R, start with a “#” sign then follow by the comment.</li>
+<li>To comment in R, start with a “#” sign then follow by the comment</li>
+</ul>
+</div>
+<div id="coding-guidelines-indentation" class="slide section level2">
+<h1>Coding Guidelines: Indentation</h1>
+<ul>
+<li>Defines the boundary of codes</li>
+<li>For example,</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="kw">dim</span>(trymatrix)[<span class="dv">1</span>] {
+        for(j in <span class="dv">1</span>:<span class="kw">dim</span>(trymatrix)[<span class="dv">2</span>] {
+            trymatrix[i, j] &lt;-<span class="st"> </span>i*j
+        }
+    <span class="er">}</span></code></pre></div>
+<ul>
+<li>With the above example, other programmers can define the boundaries of the loops easily</li>
 </ul>
 </div>
 
