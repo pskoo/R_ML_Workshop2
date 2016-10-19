@@ -1,0 +1,559 @@
+---
+title: "Introduction to R"
+author: "Koo Ping Shung"
+date: "5 October 2016"
+output: 
+  slidy_presentation : 
+    footer : "Copyright (c) 2016, Data Science Rex"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+##Welcome
+
+Welcome to Introduction to R. Below are the learning objectives of the course
+
+- Understand how R works
+- Perform simple computation using R
+- Know what are the variables in R and how to convert them
+- Perform Conditional Processing and Computation Loops
+
+##What is R?
+R is an open-source language with multiple libraries(pacakages) available, that allows the user to undertake various tasks such as computation, data wrangling, visualization and so on. These packages are mostly user-created allowing for more sophisticated computation. 
+
+##Doing Calculations
+R like any other programming language that you come across can provide simple calculation. For instance, 
+
+```{r, eval = F,echo=TRUE}
+12 + 1 #addition
+9 - 4 #substraction
+23 + 2 - 4 #addition & substraction
+112 * 2 #multiplication
+84 / 14 #division
+2^4 #power
+```
+
+##Data Types in R
+
+There are several data types in R
+
+- Numeric & Integer
+- Characters
+- Logical
+- Factor
+- Date & Time
+- Data.Frame
+- Matrices
+- Vectors
+- Lists
+
+Let's look at them in more details.
+
+##Numeric & Interger
+- In R, numeric and integer are different.
+- Main difference as follows:
+
+Properties    | Numeric      | Integer
+:-------------|:------------:|:-------------: 
+Whole Number  | Unnecessary  | Necessary     
+Decimal Place | Yes          | No
+Example       | 2.04         | 4
+
+- Numbers in R are treated as numeric unless specified.
+- To explicit state an integer you need to specify an *L suffix*
+
+```{r,eval=T,echo=TRUE}
+class(5L)
+```
+
+##Special Values
+
+- There are 2 special values under numeric/integer.
+- Special Value 1: inf
+    - This value represents *infinity*.
+- Special value 2: NaN
+    - This represents *undefined value*, also associated with *missing value*.
+```{r, eval=TRUE,echo=TRUE}    
+class(Inf)
+
+class(NaN)
+```
+
+##Characters
+* Also known as *'strings'*
+* Can contain any character, symbol or numbers
+* Comprise of pure or mixture of any of the stated values
+* For example, 
+    * aabbcdcbabcdbabcdb (pure)
+    * 127781827 (pure)
+    * ##&&*@@ (pure)
+    * John gave Alice his email address as "John@hotmail.com." (mixture)
+
+##Logical
+- usually created when we want to make comparison
+- Consist of only two value "TRUE" or "FALSE"
+
+For example,
+
+```{r, eval=TRUE,echo=TRUE}
+x=3;y=1
+z <- x>y
+z
+
+class(z)
+```
+ 
+##Factor
+- Factors are categorical variables
+- It need not be ordered like "Small", "Medium", "Large"
+- For example,
+    - Gender
+    - Branch Codes
+    - T-Shirt Sizes
+
+##Date
+
+- Like most software, dates in R is stored as the number of days between the date value and January 1st, 1970.
+- For instance, to store "1970-01-01", R would store it as "0".
+- To store "1971-01-01", R would store it as "365".
+- Thus dates **before** reference date will reflect **negative value**, while dates **after** reference date will reflect **positive** value.
+
+##Time
+
+- Time is also referenced to January 1st, 1970.
+- Time can be stored in either class:
+    - POSIXct(): data stored in the form of seconds (default)
+    - POSIXlt(): data sored in list of elements
+
+```{r, eval=TRUE,echo=TRUE}    
+b <- as.POSIXlt(Sys.time())
+b
+b$min
+```
+
+##Time Element
+
+Elements   | Range   |Description
+:---------:|:-------:|:----------
+sec        |0-61     |Seconds
+min        |0-59     |Minutes
+hour       |0-23     |Hours
+mday       |1-31     |Day of Month
+mon        |0-11     |Months after first month of year
+year       |>1900    |Year after 1900
+wday       |0-6      |Day of Week, "0" represent Sunday
+yday       |0-365    |Day of the year
+isdst      |0-1      |Daylight saving time flag
+
+##Data.Frames
+
+- Used for storing tabular data
+- Can be seen as a list of vectors of equal length
+- Each row in the data.frame represent an observation and each columns represent an attribute (also known as variable)
+
+```{r,eval=T,echo=T}
+class(iris) #iris is an existing dataset in R
+```
+- We shall discuss this in more details later
+
+##Vector
+- Sequence of data of the same type
+- Members in a vector are called components (or just members)
+- Implicit meaning usually attached to the position of each component
+- **c()** is used to create the vector as seen in the example below
+
+```{r,eval=T,echo=T}
+x <- c(1.4, 5.7, 3.2, 4.3, 9.1)
+x
+```
+
+##Matrix
+- A collection of data arranged in 2 dimension layout
+- An array with 2 subscripts
+- Forms the most fundamental of data science
+```{r,eval=T,echo=T}
+y <- matrix(c(1.4, 5.7, 3.2, 4.3, 9.1, 7.8),nrow=2,ncol=3)
+y
+```
+
+##Lists
+- Special type of vector that can contain elements of different type.
+```{r,eval=T,echo=T}
+x <- list(4,"TRUE", TRUE, c(1,4,7.3))
+class(x)
+class(x[[2]])
+class(x[[3]])
+class(x[[4]])
+```
+
+##Attributes
+- Each datatypes can have certain attributes.
+- To understand more of each attributes, we can use the **attributes()** function.
+```{r,eval=T,echo=T}
+x <- list(4,"TRUE", TRUE, c(1,4,7.3))
+attributes(x)
+y <- matrix(c(1.4, 5.7, 3.2, 4.3, 9.1, 7.8),nrow=2,ncol=3)
+attributes(y)
+```
+
+##Assignments
+- By now you would have seen how you can assign an expression to an object in R
+- "<-" is the assignment operator
+- For example, I am assigning the expression "4+1"" to x
+- You'll notice that the expression is evaluated before assigning the final result to x
+
+```{r,eval=T,echo=T}
+x <- 4+1
+x
+```
+- If you do not want the R to evaluate the expression then you can use **quote()**
+
+```{r,eval=T,echo=T}
+y <- quote(9+13)
+y
+```
+
+##Explicit Coercion
+- Sometimes for statistical modelling to work, you may need to change the data type of a column
+- To do that, we use *explicit coercion*
+- Generally, you just have to select the column/object and use as.*() to change
+- For example,
+```{r,eval=T,echo=T}
+x <- c(0,1,1,0,0)
+class(x)
+x <- as.factor(x)
+class(x)
+```
+
+##Comparison
+- Often times, you wanted to check if a certain element is of certain type. You can do the following:
+```{r,eval=T,echo=T}
+x <- TRUE
+u <- is.character(x)
+u
+v <- is.factor(x)
+v
+w <- is.logical(x)
+w
+```
+- To compare if an object is of a certain type/class, you just need is.*() to make the comparison.
+
+
+##Subsetting
+- At anytime, you may only need a subset of a data type
+- Taking a subset depends on the data type.
+- "[]" returns an object the same class as the original
+- "[[]]" used to extract elements of a list or data.frames. Onced use, the return value need not necessary be the same type as the list or data.frames.
+- "$" is used to extract elements of a data.frames or list. Often times, we use it to refer to columns in data.frames. 
+
+Some examples as follows:
+
+##Subsetting Examples
+```{r,eval=T,echo=T}
+x <- c(9,2,5,7,8,4,3,1)
+x[4]
+x[2]
+x[x>5]
+```
+
+##More Subsetting Examples
+```{r,eval=T,echo=T}
+x <- c(9,2,5,7,8,4,3,1)
+u <- x>4
+u
+```
+
+##Subsetting Matrix
+- Let's set up a matrix for first
+```{r,eval=T,echo=T}
+x <- matrix(c(9,2,5,7,8,4,3,1,6,10,19,13),nrow=3,ncol=4)
+x
+```
+-If I want the element on 2nd row and 3rd column, I will need to code as
+```{r,eval=T,echo=T}
+x[2,3]
+```
+
+##Subsetting Matrix (continued)
+- If I want all the elements on 1st row, I will need to code as
+```{r,eval=T,echo=T}
+x[1,]
+```
+- How about if I want all the element on 4th column? Here you go.
+```{r,eval=T,echo=T}
+x[,4]
+```
+- Let's make it more challenging. I want 2nd and 3rd column.
+```{r,eval=T,echo=T}
+x[,2:3]
+```
+
+##Subsetting Matrix (Continued)
+- You will notice so far, if you subset by rows or columns they return in a vector of length 1
+- If that is not what you wanted, try *drop=FALSE* option.
+```{r,eval=T,echo=T}
+x[,4,drop=FALSE]
+```
+
+##Random Number Generator
+- Often times in Data Science work, you might need to generate a set of numbers
+- For instance, if I want to generate a set of 13 numbers with mean=4 and standard deviation=3
+```{r,eval=T,echo=T}
+x<-rnorm(13,4,3)
+x
+
+summary(x)
+```
+The above is generating from a Normal probability distribution. For other probability distribution, you may Google for them easily.
+
+##Random Sample
+- The *sample()* function can be used to select a random sample from a set of (scalar) objects.
+```{r,eval=T,echo=T}
+set.seed(123789)
+u<-sample(1:30,10)
+u
+
+v<-sample(1:20,10,replace = TRUE)
+v
+```
+
+##Functions
+- Similar to Excel functions that you are familiar with
+- Can be pre-defined in R packages or user-created
+- Define the process that transforms or extracts information from data values
+- Having functions allows
+    - reduces the code to maintain
+    - readability
+    - saves programmer's time
+- To use functions, we need to know the function's name and their arguments
+- General form of function is as follows
+    
+    *function-name(argument1, argument2, argument3,...argument n)*
+    
+##Matching Arguments
+- To avoid confusion on the position of argument, state the name of the argument in the function 
+- For example,
+
+```{r,eval=T,echo=T}
+m <- matrix(c(4,1,6,8,3,9),nrow = 2,ncol=3) #is similar to below
+n <- matrix(c(4,1,6,8,3,9),ncol = 3,nrow=2)
+m
+n
+```
+
+##User Created Function
+- User can create their own functions too
+- Check out the following
+
+```{r,eval=T,echo=T}
+testf <- function(a,b,c){
+  (a*b)-c
+}
+g <- testf(9,10,14)
+g
+```
+
+##Unmatched Arguments
+
+- Going back to the testf() function, let's try the following
+```{r,eval=F,echo=T}
+f <- testf(14,10)
+```
+
+You would see an error that says an argument is missing. This could be avoided by assigning default values.
+
+```{r,eval=T,echo=T}
+testf <- function(a=1,b=1,c=0){
+  (a*b)-c
+}
+g <- testf(9,10)
+g
+```
+
+##Control Structures
+- There are times we want some of our functions to generate output given certain conditions.
+- In the next few slides we will go through the following: 
+    - Conditional Processing
+    - Loop & Nested Loop
+    - Control Structure
+        - While
+        - Repeat & Break
+        - Next 
+        - Return
+
+##Conditional Processing
+- To process data according to certain conditions
+- Example,
+
+```{r,eval=T,echo=T}
+x <- 4
+if(x > 5) {
+	y <- "Greater than five"
+} else {
+	y <- "Less than or equal to 5"
+}
+y
+```
+
+##Operators
+
+Symbols  |Description
+---------|-------------
+   "=="  |Equality
+   ">"   |Greater than
+   "<"   |Less than
+   ">="  |Greater than or Equal to
+   "<="  |Less than or Equal to
+   "&&"  |AND
+   "||"  |OR
+   "!"   |NOT
+   
+##Loops
+
+- Create loops to process data iteratively
+- Useful for cleaning data
+
+```{r,eval=T,echo=T}
+y <-c(1,5,7,3,2,7,8,9,3)
+x <- vector("logical", length = 8)
+for(i in 1: length(y)) {
+  x[i] <- y[i] > 5
+}
+x
+```
+
+##Nested Loops
+- Known as loop within loop
+```{r,eval=T,echo=T}
+trymatrix <- matrix(nrow = 12, ncol = 12)
+for(i in 1:dim(trymatrix)[1]) { #outer loop
+			for(j in 1:dim(trymatrix)[2]) { #inner loop
+				trymatrix[i, j] <- i*j
+			}
+		}
+trymatrix
+```
+
+##While Loop
+- Tells R to keep processing as long as condition is satisfied
+```{r,eval=T,echo=T}
+x <- 3
+	while(x <= 33) {
+		x <- x + 3
+		print(x)
+}
+```
+
+##Repeat Loop & Break Clause
+- Repeat loop and "break" clause works together
+- Repeat loop commonly used when conditions need to be "repeated" (unlike while loop, which stops when condition not met)
+- An instruction within a repeat loop will be executed at least once
+- To prevent an infinite loop when using repeat loop, can use if.else with break clause
+```{r,eval=T,echo=T}
+x <- 2
+	repeat {
+	  x <- x + 1
+	  print(x)
+		if(x == 10) {
+		break
+		}
+	}
+```
+
+##Next Clause
+- Next clause tells R to skip an iteration of the loop
+```{r,eval=T,echo=T}
+c1 <- 0
+c2 <- 0
+for(i in 1:100) {
+			c1 <- c1 + 1
+			if(i <= 15) {
+				next
+			}
+			c2 <- c2 + 1
+		}
+c1
+c2
+```
+
+##Return Clause
+- Tells R the type of value to return
+- Particularly used in user-defined functions
+```{r,eval=T,echo=T}
+startT <- function(x){
+		if('T' == substr(x,1,1)){
+		return(TRUE)
+		}
+		return(FALSE)
+    }
+t1 <- startT("The cow jump over the moon")
+t1
+```
+
+##lapply
+- Often times you want to apply same function over a list of items
+- lapply() does that
+    - First argument for lapply is a list
+    - Second argument is a name of a function
+    - Third argument are other arguments for the function
+- For example,
+```{r,eval=T,echo=T}
+x <- list(a=rnorm(10), b=10:50)
+y <- lapply(x, mean)
+y
+```
+
+
+##Install Packages
+- In R, you may need to install R packages for your work
+- Packages may contain relevant functions or data.frames that you need
+- For example, you want to use the *dplyr* package. Submit the following code
+```{r,eval=F,echo=T}
+install.packages("dplyr")
+```
+- After installation, for any new R session, you need to deploy the packages you need. To deploy, 
+```{r,eval=F,echo=T}
+library(dplyr)
+```
+
+##Coding Guidelines
+- This wraps up the introduction to R workshop
+- As you step into the world of coding, we would like to provide some coding guidelines
+
+##Why Coding Guidelines?
+- To make codes more comprehensible, not only for you but others as well
+- Understand the process flow of a code easily
+- State the boundaries of the individual codes, especially loops and user-defined functions visually
+    - Useful when reviewing and debugging codes
+- All that said, guidelines are not mandatory (we strongly recommend though)
+
+##Coding Guidelines: Consolidating
+- Consolidate all similar codes in a single program
+- Done in a text editor, to test out the codes
+- *Important*!
+    - Specify deployed packages before the codes
+    - Codes that manage R session should be placed at the start of the program
+
+##Coding Guidelines: Commenting
+- Comment on codes where possible
+- Help viewers understand the code better
+- Easier to review codes
+- To comment in R, start with a "#" sign then follow by the comment
+
+##Coding Guidelines: Indentation
+- Defines the boundary of codes
+- For example, 
+```{r,eval=F,echo=T}
+for(i in 1:dim(trymatrix)[1] {
+		for(j in 1:dim(trymatrix)[2] {
+			trymatrix[i, j] <- i*j
+		}
+	}
+
+```
+- With the above example, other programmers can define the boundaries of the loops easily
+
+
+   
