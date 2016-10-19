@@ -2,9 +2,13 @@
 title: "Introduction to R"
 author: "Koo Ping Shung"
 date: "5 October 2016"
+<<<<<<< HEAD
 output: 
   slidy_presentation : 
     footer : "Copyright (c) 2016, Data Science Rex"
+=======
+output: slidy_presentation
+>>>>>>> b6239735d09693d1590a2bfd13371737a900bcfe
 ---
 
 ```{r setup, include=FALSE}
