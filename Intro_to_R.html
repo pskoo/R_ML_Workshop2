@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Koo Ping Shung" />
-  <meta name="copyright" content="Copyright (c) 2016, Data Science Rex" /> 
+  <meta name="copyright" content="Copyright (c) 2016, Data Science Rex. Visit us @ www.datasciencerex.com" /> 
   <title>Introduction to R</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -69,7 +69,7 @@ Koo Ping Shung
 </div>
 <div id="what-is-r" class="slide section level2">
 <h1>What is R?</h1>
-<p>R is an open-source language with multiple libraries(pacakages) available, that allows the user to undertake various tasks such as computation, data wrangling, visualization and so on. These packages are mostly user-created allowing for more sophisticated computation.</p>
+<p>R is an open-source language with multiple libraries(packages) available, that allows the user to undertake various tasks such as computation, data wrangling, visualization and so on. These packages are mostly user-created allowing for more sophisticated computation.</p>
 </div>
 <div id="doing-calculations" class="slide section level2">
 <h1>Doing Calculations</h1>
@@ -217,9 +217,9 @@ z</code></pre></div>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">as.POSIXlt</span>(<span class="kw">Sys.time</span>())
 b</code></pre></div>
-<pre><code>## [1] &quot;2016-10-19 23:45:51 MYT&quot;</code></pre>
+<pre><code>## [1] &quot;2016-10-21 14:10:00 MYT&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b$min</code></pre></div>
-<pre><code>## [1] 45</code></pre>
+<pre><code>## [1] 10</code></pre>
 </div>
 <div id="time-element" class="slide section level2">
 <h1>Time Element</h1>
@@ -483,11 +483,12 @@ x</code></pre></div>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x&lt;-<span class="kw">rnorm</span>(<span class="dv">13</span>,<span class="dv">4</span>,<span class="dv">3</span>)
 x</code></pre></div>
-<pre><code>##  [1]  7.246556  6.843891  6.599507  2.948386  2.476533 -0.669641  3.279745
-##  [8]  5.155462  1.328985  3.591604 -4.289103  3.520889  4.038103</code></pre>
+<pre><code>##  [1] -0.7310621  7.7985559  2.7705870  5.4686970  3.4093515  0.8217858
+##  [7]  8.1966978  6.6589201  3.9746978  0.3131074 -0.8013180  4.3531412
+## [13]  5.7718877</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(x)</code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  -4.289   2.477   3.521   3.236   5.155   7.247</code></pre>
+## -0.8013  0.8218  3.9750  3.6930  5.7720  8.1970</code></pre>
 <p>The above is generating from a Normal probability distribution. For other probability distribution, you may Google for them easily.</p>
 </div>
 <div id="random-sample" class="slide section level2">
@@ -599,7 +600,48 @@ y</code></pre></div>
 </div>
 <div id="operators" class="slide section level2">
 <h1>Operators</h1>
-<p>Symbols |Description ———|————- “==” |Equality “&gt;” |Greater than “&lt;” |Less than “&gt;=” |Greater than or Equal to “&lt;=” |Less than or Equal to “&amp;&amp;” |AND “||” |OR “!” |NOT</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Symbols</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">“==”</td>
+<td align="left">Equality</td>
+</tr>
+<tr class="even">
+<td align="left">“&gt;”</td>
+<td align="left">Greater Than</td>
+</tr>
+<tr class="odd">
+<td align="left">“&lt;”</td>
+<td align="left">Less Than</td>
+</tr>
+<tr class="even">
+<td align="left">“&gt;=”</td>
+<td align="left">Greater Than or Equal</td>
+</tr>
+<tr class="odd">
+<td align="left">“&lt;=”</td>
+<td align="left">Less Than or Equal</td>
+</tr>
+<tr class="even">
+<td align="left">“&amp;&amp;”</td>
+<td align="left">AND</td>
+</tr>
+<tr class="odd">
+<td align="left">“||”</td>
+<td align="left">OR</td>
+</tr>
+<tr class="even">
+<td align="left">“!”</td>
+<td align="left">NOT</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="loops" class="slide section level2">
 <h1>Loops</h1>
